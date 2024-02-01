@@ -1,0 +1,45 @@
+﻿@model fristclass.webapp.Models.student
+@{
+
+}
+<form asp-controller="student" asp-action="CreateOrEidt" method="post">
+<div class="row">
+    
+    <div class="col-md-6">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" id="lastname" placeholder="Enter name">
+        
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" id="lastname" placeholder="Enter your Address">
+        
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" id="lastname" placeholder="Enter Phone">
+        
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" id="lastname" placeholder="Enter your Email">
+        
+    </div>
+    
+</div>
+    <button type="submit" class="btn btn-primary mt-3">submit</button>
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

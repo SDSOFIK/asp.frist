@@ -1,0 +1,43 @@
+﻿@model IEnumerable<fristclass.webapp.Models.student>
+@{
+    int idNo = 1;
+
+}
+<a asp-controller="student" asp-action="CreateOrEidt" class="btn-sm btn-success"> studen Edit</a>
+<div class="container">
+<div class="row">
+    <table class="table table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@idNo</td>
+                        <td>@item.Name</td>
+                        <td>@item.Address</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <a asp-action="CreateOrEidt" asp-controller="student" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Detiles" asp-controller="student" asp-route-id="@item" class="btn btn-sm btn-link">Detiles</a>
+                            <a asp-action="Delete" asp-controller="student" asp-route-id="@item.Id" onclick="return confirm('are you sure delete item?')" class="btn btn-danger">Delet</a>
+                        </td>
+                    </tr>
+                    idNo++;
+                }
+            
+        </tbody>
+
+    </table>
+</div>
+
+</div>
